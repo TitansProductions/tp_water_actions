@@ -1,24 +1,26 @@
 # Description
 
-TP 3DME, a free script supporting **ALL** the frameworks. 
+TP WATER ACTIONS, a free script supporting **ALL** the frameworks. 
 
 This script was firstly made for **TPZ-CORE** framework but we also provide it for RedM Community.
 
-This 3DME script can handle multiple texts displayed above every player without replacing existing displayed 3d message.
+
+
+The following script also supports **TP DirtSystem** (paid script from titans productions).
 
 # Development Exports
 
-1.
+1.This export returns a boolean - if a player is drinking from the river or not.
 
-```
-lua
+```lua
 
 local isDrinking = exports.tp_river_actions:isPlayerDrinking()
 
 ```
 
-```
-lua
+2. This export returns a boolean - if a player is washing him/herself or not.
+
+```lua
 
 local isWashing = exports.tp_river_actions:isPlayerWashing()
 
