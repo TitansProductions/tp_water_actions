@@ -1,6 +1,6 @@
 # Description
 
-TP WATER ACTIONS, a free script supporting **ALL** the frameworks. 
+TP Water Actions, a free script supporting **ALL** the frameworks. 
 
 This script was firstly made for **TPZ-CORE** framework but we also provide it for RedM Community.
 
