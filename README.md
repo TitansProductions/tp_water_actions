@@ -10,7 +10,7 @@ The following script also supports **TP DirtSystem** (paid script from titans pr
 
 # Development Exports
 
-1.This export returns a boolean - if a player is drinking from the river or not.
+1. This export returns a boolean - if a player is drinking from the river or not.
 
 ```lua
 
