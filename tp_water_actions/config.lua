@@ -25,8 +25,8 @@ Config.PromptKeys = {
  General Settings
 ]]---------------------------------------------------------
 
--- tpz_metabolism
 -- How much thirst should be added on the player when drinking from water?
+-- Checkout client/main.lua (157 line) to execute your metabolism event or export.
 Config.AddDrinkThirstValue = 10
 
 -- When drinking from a water source.
