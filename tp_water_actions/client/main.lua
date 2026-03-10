@@ -187,9 +187,9 @@ RegisterCommand(Config.ToggleRiverActions.Command, function(source, args, rawCom
 
     if not HAS_TOGGLE_ACTIVE then
 
-        TriggerEvent('tpz_core:sendBottomTipNotification', Config.ToggleRiverActions.DisabledText, 3000)
+        API.sendNotification(Config.ToggleRiverActions.DisabledText, "success")
     else
-        TriggerEvent('tpz_core:sendBottomTipNotification', Config.ToggleRiverActions.EnabledText, 3000)
+        API.sendNotification(Config.ToggleRiverActions.EnabledText, "success")
     end
 
 end, false)
