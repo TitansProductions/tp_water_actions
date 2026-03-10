@@ -1,9 +1,10 @@
-
-local API = exports.tp_libs:getAPI()
-
 local IS_PLAYER_FISHING = false
 local HAS_TOGGLE_ACTIVE = true
 local IS_PLAYER_BUSY    = false
+
+local IS_PLAYER_WASHING = false
+local IS_PLAYER_DRINKING = false
+
 
 --[[-------------------------------------------------------
  Events
@@ -23,6 +24,7 @@ local StartWash = function(dict, anim, waterType)
     local playerPed = PlayerPedId()
 
     IS_PLAYER_BUSY = true
+    IS_PLAYER_WASHING = true
 
     API.PlayAnimation(playerPed, { 
         dict = dict, 
@@ -70,6 +72,7 @@ local StartWash = function(dict, anim, waterType)
     end
 
     IS_PLAYER_BUSY = false
+    IS_PLAYER_WASHING = false
 end
 
 
@@ -121,6 +124,7 @@ Citizen.CreateThread(function()
                     elseif prompt.type == 'DRINK' then
                    
                         IS_PLAYER_BUSY = true
+                        IS_PLAYER_DRINKING = true
 
                         local dict = "amb_rest_drunk@world_human_bucket_drink@ground@male_a@idle_a"
                         local anim = "idle_a"
@@ -159,8 +163,12 @@ Citizen.CreateThread(function()
                             local removedHealthValue = health - Config.ChanceToBeDamaged.HealthDamage
 
                             SetEntityHealth(playerPed, removedHealthValue)
-
+      
                         end
+
+                        IS_PLAYER_BUSY = false
+                        IS_PLAYER_DRINKING = false
+      
 
 
                     end
@@ -193,3 +201,15 @@ RegisterCommand(Config.ToggleRiverActions.Command, function(source, args, rawCom
     end
 
 end, false)
+
+--[[-------------------------------------------------------
+ Exports
+]]---------------------------------------------------------
+
+exports("isPlayerDrinking", function()
+    return IS_PLAYER_DRINKING
+end)
+
+exports("isPlayerWashing", function()
+    return IS_PLAYER_WASHING
+end)
